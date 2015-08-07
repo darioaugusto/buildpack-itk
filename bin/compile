@@ -15,20 +15,15 @@ CACHE_DIR=$2
 
 FIXED_HOME=/app
 
-sudo apt-get install cmake cmake-curses-gui gcc g++ git eclipse
+sudo apt-get install gcc g++
+
+mkdir itklib
+
+cd itklib
+
+curl https://dl.dropboxusercontent.com/u/236437/libSimpleITKJava.so
 
 cd ~
 
-git clone --recursive  http://itk.org/SimpleITK.git
-
-cd SimpleITK
-
-cd ~
-mkdir SimpleITK-build
-cd SimpleITK-build
-cmake ../SimpleITK/SuperBuild
-
-make
-
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/SimpleITK-build/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/itklib
 
